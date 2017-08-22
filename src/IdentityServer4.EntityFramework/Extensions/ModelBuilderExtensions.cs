@@ -33,6 +33,12 @@ namespace IdentityServer4.EntityFramework.Extensions
                 client.Property(x => x.ClientName).HasMaxLength(200);
                 client.Property(x => x.ClientUri).HasMaxLength(2000);
 
+                client.Property(x => x.BackChannelLogoutSessionRequired);
+                client.Property(x => x.FrontChannelLogoutSessionRequired);
+                client.Property(x => x.ConsentLifetime);
+                client.Property(x => x.BackChannelLogoutUri).HasMaxLength(2000);
+                client.Property(x => x.FrontChannelLogoutUri).HasMaxLength(2000);
+
                 client.HasIndex(x => x.ClientId).IsUnique();
 
                 client.HasMany(x => x.AllowedGrantTypes).WithOne(x => x.Client).IsRequired().OnDelete(DeleteBehavior.Cascade);

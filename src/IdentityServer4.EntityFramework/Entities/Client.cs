@@ -48,5 +48,11 @@ namespace IdentityServer4.EntityFramework.Entities
         public bool AlwaysSendClientClaims { get; set; }
         public bool PrefixClientClaims { get; set; } = true;
         public List<ClientCorsOrigin> AllowedCorsOrigins { get; set; }
+
+        public bool BackChannelLogoutSessionRequired { get; set; }
+        public bool FrontChannelLogoutSessionRequired { get; set; }
+        public int? ConsentLifetime { get; set; }
+        public string BackChannelLogoutUri { get; set; }
+        public string FrontChannelLogoutUri { get; set; }
     }
 }
